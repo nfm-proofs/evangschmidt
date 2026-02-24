@@ -207,6 +207,14 @@
             border-width: 0;
         }
         
+        .geo-phone-row {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .geo-phone-row.resolved {
+            opacity: 1;
+        }
+
         @media (max-width: 640px) {
             .container {
                 padding: 60px 24px 100px;
@@ -277,9 +285,9 @@
                     <span class="contact-label">Email:</span>
                     <a href="mailto:evan@nextframemedia.com">evan@nextframemedia.com</a>
                 </div>
-                <div>
+                <div class="geo-phone-row" id="geo-phone-row">
                     <span class="contact-label">Phone:</span>
-                    <a href="https://nextframemedia.com/contact/" target="_blank" rel="noopener">Get in touch via phone or form <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-left:3px;opacity:0.6;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    <a href="tel:+18284901210" id="geo-phone-link">(828) 490-1210</a>
                 </div>
                 <div>
                     <span class="contact-label">LinkedIn:</span>
@@ -288,5 +296,59 @@
             </div>
         </section>
     </div>
+    <script>
+        (function () {
+            const CENTRAL_STATES = ['NE', 'IA', 'KS', 'MO', 'TX', 'AR'];
+            const PHONES = {
+                central:  { display: '(913) 218-1100', raw: '+19132181100' },
+                default:  { display: '(828) 490-1210', raw: '+18284901210' }
+            };
+            const CACHE_KEY = 'geo_state_cache';
+            const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours in ms
+
+            function applyPhone(stateCode) {
+                const phone = CENTRAL_STATES.includes(stateCode)
+                    ? PHONES.central
+                    : PHONES.default;
+                const link = document.getElementById('geo-phone-link');
+                const row  = document.getElementById('geo-phone-row');
+                link.href        = 'tel:' + phone.raw;
+                link.textContent = phone.display;
+                row.classList.add('resolved');
+            }
+
+            function resolve() {
+                // Check cache first
+                try {
+                    const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+                    if (cached && (Date.now() - cached.ts) < CACHE_TTL) {
+                        applyPhone(cached.state);
+                        return;
+                    }
+                } catch (e) {}
+
+                // Fetch with 3s timeout to match your PHP approach
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 3000);
+
+                fetch('https://ipapi.co/region_code/', { signal: controller.signal })
+                    .then(r => r.text())
+                    .then(state => {
+                        clearTimeout(timeout);
+                        state = state.trim().toUpperCase();
+                        try {
+                            localStorage.setItem(CACHE_KEY, JSON.stringify({ state, ts: Date.now() }));
+                        } catch (e) {}
+                        applyPhone(state);
+                    })
+                    .catch(() => {
+                        clearTimeout(timeout);
+                        applyPhone(''); // fall back to default
+                    });
+            }
+
+            resolve();
+        })();
+    </script>
 </body>
 </html>
