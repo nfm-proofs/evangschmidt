@@ -1,354 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evan Schmidt | Video Production & Marketing Support</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Evan Schmidt provides video production, social media, and email marketing support for businesses. Monthly retainers with consistent, reliable service through Next Frame Media.">
-    <meta name="keywords" content="Evan Schmidt, Kansas City, Overland Park, Leawood, video production Kansas City, marketing support Kansas City, Kansas City video producer, Next Frame Media, business video production, social media management Kansas City">
-    <meta name="author" content="Evan Schmidt">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Evan Schmidt">
-    <meta property="og:url" content="https://evangschmidt.com">
-    <meta property="og:title" content="Evan Schmidt | Video & Marketing Support">
-    <meta property="og:description" content="Video production, social media, and email marketing support for businesses. Monthly retainers focused on consistency and reliability.">
-    <meta property="og:image" content="https://nextframemedia.com/wp-content/uploads/2026/01/Evan-Schmidt-Next-Frame-Media.jpg">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Evan Schmidt | Video & Marketing Support">
-    <meta name="twitter:description" content="Video production and marketing support for businesses. Monthly retainers with consistent service.">
-    
-    <!-- Structured Data for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Evan Schmidt",
-      "url": "https://evangschmidt.com",
-      "image": "https://nextframemedia.com/wp-content/uploads/2026/01/Evan-Schmidt-Next-Frame-Media.jpg",
-      "jobTitle": "Founder",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Next Frame Media",
-        "url": "https://nextframemedia.com"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kansas City",
-        "addressRegion": "KS",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Kansas City"
-        },
-        {
-          "@type": "City", 
-          "name": "Overland Park"
-        },
-        {
-          "@type": "City",
-          "name": "Leawood"
-        }
-      ],
-      "email": "evan@nextframemedia.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/evangschmidt/"
-      ]
-    }
-    </script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --charcoal: #2a2a2a;
-            --off-white: #f8f7f4;
-            --mid-gray: #6a6a6a;
-            --accent: #4a4a4a;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
-            font-weight: 300;
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--charcoal);
-            background-color: var(--off-white);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 32px 120px;
-        }
-        
-        header {
-            margin-bottom: 80px;
-            display: flex;
-            align-items: center;
-            gap: 48px;
-        }
-        
-        .headshot {
-            flex-shrink: 0;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            filter: drop-shadow(0 8px 24px rgba(42, 42, 42, 0.15));
-            transition: filter 0.3s ease;
-        }
-        
-        .headshot:hover {
-            filter: drop-shadow(0 12px 32px rgba(42, 42, 42, 0.2));
-        }
-        
-        .header-text h1 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-weight: 600;
-            font-size: 42px;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-        
-        .tagline {
-            font-size: 17px;
-            color: var(--mid-gray);
-            font-weight: 400;
-            line-height: 1.5;
-        }
-        
-        main {
-            margin-bottom: 80px;
-        }
-        
-        section {
-            margin-bottom: 48px;
-        }
-        
-        section:last-of-type {
-            margin-bottom: 0;
-        }
-        
-        p {
-            margin-bottom: 24px;
-        }
-        
-        p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .contact-section {
-            margin-top: 80px;
-            padding-top: 48px;
-            border-top: 1px solid rgba(42, 42, 42, 0.12);
-        }
-        
-        .contact-section h2 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-weight: 600;
-            font-size: 28px;
-            margin-bottom: 24px;
-            letter-spacing: -0.01em;
-        }
-        
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .contact-links a {
-            color: var(--charcoal);
-            text-decoration: none;
-            font-size: 17px;
-            transition: color 0.2s ease;
-            display: inline-block;
-        }
-        
-        .contact-links a:hover {
-            color: var(--mid-gray);
-        }
-        
-        .contact-label {
-            display: inline-block;
-            min-width: 80px;
-            color: var(--mid-gray);
-            font-weight: 400;
-        }
-        
-        /* Screen reader only - invisible to users, visible to bots */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-        
-        .geo-phone-row {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .geo-phone-row.resolved {
-            opacity: 1;
+<script>
+    (function () {
+        const CENTRAL_STATES = ['NE', 'IA', 'KS', 'MO', 'TX', 'AR'];
+        const PHONES = {
+            central: { display: '(913) 218-1100', raw: '+19132181100' },
+            default: { display: '(828) 490-1210', raw: '+18284901210' }
+        };
+        const CACHE_KEY = 'geo_state_cache';
+        const CACHE_TTL = 24 * 60 * 60 * 1000;
+
+        function applyPhone(stateCode) {
+            const phone = CENTRAL_STATES.includes(stateCode) ? PHONES.central : PHONES.default;
+            const link = document.getElementById('geo-phone-link');
+            const row  = document.getElementById('geo-phone-row');
+            link.href        = 'tel:' + phone.raw;
+            link.textContent = phone.display;
+            row.classList.add('resolved');
         }
 
-        @media (max-width: 640px) {
-            .container {
-                padding: 60px 24px 100px;
-            }
-            
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 32px;
-                margin-bottom: 60px;
-            }
-            
-            .headshot {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .header-text h1 {
-                font-size: 36px;
-            }
-            
-            .tagline {
-                font-size: 16px;
-            }
-            
-            .contact-section {
-                margin-top: 60px;
-                padding-top: 40px;
-            }
-            
-            .contact-links a {
-                font-size: 16px;
-            }
+        function fetchWithTimeout(url, ms) {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), ms);
+            return fetch(url, { signal: controller.signal })
+                .finally(() => clearTimeout(timeout));
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <img src="https://nextframemedia.com/wp-content/uploads/2026/01/Evan-Schmidt-Next-Frame-Media.jpg" 
-                 alt="Evan Schmidt" 
-                 class="headshot">
-            <div class="header-text">
-                <h1>Evan Schmidt</h1>
-                <p class="tagline">I help businesses keep video, social media, and email marketing moving consistently.</p>
-            </div>
-        </header>
-        
-        <main>
-            <section>
-                <p>I run <a href="https://nextframemedia.com">Next Frame Media</a>, a small marketing practice focused on ongoing support rather than one-off projects.</p>
-                
-                <p>The work is straightforward: handle production and coordination so teams can stay focused on their business. I serve as a single point of contact for video, social content, and email—carrying context forward and keeping output steady as priorities shift.</p>
-                
-                <p>This approach works best for businesses that value reliability and follow-through. Companies where consistency matters more than chasing trends, and where having one person who understands the operation is more valuable than managing multiple vendors.</p>
-                
-                <p>My background includes work with public agencies, higher education, and private organizations across different industries. Training from UNC Chapel Hill. Ten years building systems that fit how businesses actually operate.</p>
-                
-                <!-- Hidden text for search engines only -->
-                <span class="sr-only">Evan Schmidt provides video production and marketing services in Kansas City, Kansas and the Kansas City metro area including Overland Park, Leawood, and Johnson County. Video producer serving businesses in Kansas City KS and Kansas City MO.</span>
-            </section>
-        </main>
-        
-        <section class="contact-section">
-            <h2>Contact</h2>
-            <div class="contact-links">
-                <div>
-                    <span class="contact-label">Email:</span>
-                    <a href="mailto:evan@nextframemedia.com">evan@nextframemedia.com</a>
-                </div>
-                <div class="geo-phone-row" id="geo-phone-row">
-                    <span class="contact-label">Phone:</span>
-                    <a href="tel:+18284901210" id="geo-phone-link">(828) 490-1210</a>
-                </div>
-                <div>
-                    <span class="contact-label">LinkedIn:</span>
-                    <a href="https://linkedin.com/in/evangschmidt" target="_blank" rel="noopener">linkedin.com/in/evangschmidt</a>
-                </div>
-            </div>
-        </section>
-    </div>
-    <script>
-        (function () {
-            const CENTRAL_STATES = ['NE', 'IA', 'KS', 'MO', 'TX', 'AR'];
-            const PHONES = {
-                central:  { display: '(913) 218-1100', raw: '+19132181100' },
-                default:  { display: '(828) 490-1210', raw: '+18284901210' }
-            };
-            const CACHE_KEY = 'geo_state_cache';
-            const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours in ms
 
-            function applyPhone(stateCode) {
-                const phone = CENTRAL_STATES.includes(stateCode)
-                    ? PHONES.central
-                    : PHONES.default;
-                const link = document.getElementById('geo-phone-link');
-                const row  = document.getElementById('geo-phone-row');
-                link.href        = 'tel:' + phone.raw;
-                link.textContent = phone.display;
-                row.classList.add('resolved');
-            }
+        function resolve() {
+            try {
+                const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+                if (cached && (Date.now() - cached.ts) < CACHE_TTL) {
+                    applyPhone(cached.state);
+                    return;
+                }
+            } catch (e) {}
 
-            function resolve() {
-                // Check cache first
-                try {
-                    const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
-                    if (cached && (Date.now() - cached.ts) < CACHE_TTL) {
-                        applyPhone(cached.state);
-                        return;
-                    }
-                } catch (e) {}
+            // Primary: ipwho.is (more reliable free tier)
+            fetchWithTimeout('https://ipwho.is/', 3000)
+                .then(r => r.json())
+                .then(data => {
+                    if (!data || !data.region_code) throw new Error('no region_code');
+                    return data.region_code.trim().toUpperCase();
+                })
+                .catch(() =>
+                    // Fallback: ipapi.co
+                    fetchWithTimeout('https://ipapi.co/region_code/', 3000)
+                        .then(r => r.text())
+                        .then(t => {
+                            const s = t.trim().toUpperCase();
+                            if (!s || s.length > 3) throw new Error('bad response');
+                            return s;
+                        })
+                )
+                .then(state => {
+                    try {
+                        localStorage.setItem(CACHE_KEY, JSON.stringify({ state, ts: Date.now() }));
+                    } catch (e) {}
+                    applyPhone(state);
+                })
+                .catch(() => applyPhone('')); // both failed — show default
+        }
 
-                // Fetch with 3s timeout to match your PHP approach
-                const controller = new AbortController();
-                const timeout = setTimeout(() => controller.abort(), 3000);
-
-                fetch('https://ipapi.co/region_code/', { signal: controller.signal })
-                    .then(r => r.text())
-                    .then(state => {
-                        clearTimeout(timeout);
-                        state = state.trim().toUpperCase();
-                        try {
-                            localStorage.setItem(CACHE_KEY, JSON.stringify({ state, ts: Date.now() }));
-                        } catch (e) {}
-                        applyPhone(state);
-                    })
-                    .catch(() => {
-                        clearTimeout(timeout);
-                        applyPhone(''); // fall back to default
-                    });
-            }
-
-            resolve();
-        })();
-    </script>
-</body>
-</html>
+        resolve();
+    })();
+</script>
